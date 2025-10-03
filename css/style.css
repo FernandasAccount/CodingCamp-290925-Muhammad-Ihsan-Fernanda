@@ -251,3 +251,8 @@ body {
   .icon-btn { width:40px; height:40px; }
   .todo-table th, .todo-table td { padding:10px; font-size:13px; }
 }
+
+.center-footer {
+  text-align: center;
+  margin-top: 24px;
+}

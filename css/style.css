@@ -155,8 +155,6 @@ body {
   border-color: rgba(108,99,255,0.6);
 }
 
-
-
 /* ---------- table ---------- */
 .table-wrap{
   margin-top:6px;
@@ -251,6 +249,7 @@ body {
   .icon-btn { width:40px; height:40px; }
   .todo-table th, .todo-table td { padding:10px; font-size:13px; }
 }
+
 
 .center-footer {
   text-align: center;

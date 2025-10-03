@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Todo List</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="page">
+    <div class="card">
+      <h1 class="title">Todo List</h1>
+
+      <div class="input-row">
+        <input id="taskInput" class="input task-input" type="text" placeholder="Add a todo..." />
+        <input id="dateInput" class="input date-input" type="date" />
+        <button id="addBtn" class="btn icon-btn">+</button>
+      </div>
+
+      <div class="controls-row">
+        <div class="filter-wrapper">
+          <select id="filterSelect" class="select-filter">
+            <option selected hidden>Filter</option>
+            <option value="all">All</option>
+            <option value="week">Week</option>
+            <option value="month">Month</option>
+            <option value="year">Year</option>
+          </select>
+        </div>
+        <button id="deleteAllBtn" class="btn danger">DELETE ALL</button>
+      </div>
+
+      <div class="table-wrap">
+        <table class="todo-table">
+          <thead>
+            <tr>
+              <th>TASK</th>
+              <th>DUE DATE</th>
+              <th>STATUS</th>
+              <th>ACTIONS</th>
+            </tr>
+          </thead>
+          <tbody id="taskList">
+            <tr><td colspan="4" class="empty">No task found</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

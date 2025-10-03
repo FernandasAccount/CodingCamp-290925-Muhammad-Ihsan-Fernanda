@@ -1,0 +1,253 @@
+/* ---------- base ---------- */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root{
+  --bg:#0f1524; --card:#1f2738; --panel:#242b3a;
+  --muted:#9aa3bd; --accent:#6c63ff; --accent-2:#574bd9;
+  --success:#28a745; --danger:#e54b4b;
+  --table-head:#2b3350; --table-row:#1b2130;
+}
+body {
+  background: radial-gradient(1200px 400px at 10% 20%, rgba(20,28,44,0.6), transparent),
+              radial-gradient(1000px 300px at 90% 80%, rgba(36,30,60,0.2), transparent),
+              var(--bg);
+  font-family: Inter, "Segoe UI", Roboto, Arial, sans-serif;
+  color: #fff;
+  min-height: 100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding: 32px;
+}
+
+/* ---------- card ---------- */
+.card{
+  width: 720px;
+  max-width: calc(100% - 48px);
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.03));
+  border-radius: 12px;
+  padding: 28px;
+  box-shadow: 0 10px 30px rgba(2,6,23,0.6);
+  border: 1px solid rgba(255,255,255,0.03);
+}
+
+.title{
+  text-align: center;
+  margin-bottom: 18px;
+  font-size: 20px;
+  letter-spacing: 0.6px;
+  color: #e9eefb;
+}
+
+/* ---------- inputs ---------- */
+.input {
+  background: #ffffff;       /* background putih */
+  color: #000000;            /* teks hitam */
+  border: 1px solid #ccc;    /* border abu biar rapi */
+  padding: 10px 12px;
+  border-radius: 8px;
+  outline: none;
+  height: 44px;              /* samakan tinggi */
+  font-size: 14px;
+}
+
+.input:focus {
+  box-shadow: 0 0 5px rgba(108,99,255,0.3);
+  border-color: rgba(108,99,255,0.6);
+}
+
+.container {
+  background: #1e293b;
+  padding: 20px;
+  border-radius: 15px;
+  width: 500px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+}
+
+/* Baris input: task + date + addBtn */
+.input-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+/* Baris bawah: filter kiri, delete kanan */
+.controls-row {
+  display: flex;                 /* penting */
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+/* coret tulisan task kalau done */
+.task-cell.done {
+  text-decoration: line-through;
+  color: #9aa3bd; /* warna jadi abu biar lebih jelas bedanya */
+}
+
+/* khusus task dan date agar konsisten tinggi */
+.task-input { flex:1; min-width:120px; }
+.date-input { width:170px; }
+
+
+/* ---------- buttons ---------- */
+.btn {
+  border: none;
+  padding: 9px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight:600;
+  letter-spacing: .3px;
+  transition: transform .08s ease, box-shadow .12s;
+}
+
+.icon-btn {
+  background: linear-gradient(180deg, var(--accent), var(--accent-2));
+  color: #fff;
+  font-size: 18px;
+  width:44px; height:44px; display:flex; align-items:center; justify-content:center;
+  box-shadow: 0 6px 18px rgba(108,99,255,0.18);
+}
+
+.icon-btn:active { transform: translateY(1px); }
+
+.btn.danger {
+  background: linear-gradient(180deg, rgba(229,75,75,0.95), #d43b3b);
+  color: #fff;
+  padding: 9px 12px;
+  box-shadow: 0 6px 18px rgba(229,75,75,0.12);
+}
+
+/* ---------- controls ---------- */
+.controls-row {
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.filter-wrapper {
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+
+.filter-label {
+  background: rgba(255,255,255,0.03);
+  padding: 6px 10px;
+  border-radius: 8px;
+  color: var(--muted);
+  font-size: 13px;
+  border: 1px solid rgba(255,255,255,0.03);
+}
+
+/* ---------- select (filter) ---------- */
+.select-filter {
+  background: #ffffff;       /* putih */
+  color: #000000;            /* teks hitam */
+  border-radius:8px;
+  padding:10px 12px;
+  border: 1px solid #ccc;
+  height: 44px;              /* samakan tinggi */
+  font-size: 14px;
+}
+.select-filter:focus {
+  box-shadow: 0 0 5px rgba(108,99,255,0.3);
+  border-color: rgba(108,99,255,0.6);
+}
+
+
+
+/* ---------- table ---------- */
+.table-wrap{
+  margin-top:6px;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.03);
+}
+
+.todo-table{
+  width:100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.todo-table thead {
+  background: linear-gradient(180deg, var(--table-head), rgba(43,51,80,0.7));
+}
+
+.todo-table th{
+  text-align:left;
+  padding: 12px 16px;
+  color: var(--muted);
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+
+.todo-table td{
+  padding: 12px 16px;
+  vertical-align: middle;
+  color: #e7eefb;
+}
+
+.todo-table tbody tr {
+  background: linear-gradient(180deg, rgba(20,26,38,0.4), rgba(16,20,30,0.2));
+  border-bottom: 1px solid rgba(255,255,255,0.02);
+}
+
+.todo-table tbody tr:last-child { border-bottom: none; }
+
+.empty {
+  text-align:center;
+  color: var(--muted);
+  padding: 22px;
+  font-style: italic;
+}
+
+/* ---------- status & action buttons ---------- */
+.status {
+  display:inline-block;
+  padding:6px 10px;
+  border-radius: 999px;
+  font-weight:700;
+  font-size:13px;
+}
+
+.status.pending { background: rgba(255,204,51,0.12); color: #ffda6a; border:1px solid rgba(255,204,51,0.06); }
+.status.done { background: rgba(0,230,118,0.08); color: #8cff9f; border:1px solid rgba(0,230,118,0.06); }
+
+.action-btn {
+  padding:7px 10px;
+  border-radius:8px;
+  border:none;
+  cursor:pointer;
+  font-weight:700;
+  margin-left:6px;
+  transition: transform .06s, box-shadow .12s;
+  box-shadow: 0 6px 12px rgba(2,6,23,0.35);
+}
+
+.action-btn:active { transform: translateY(1px); }
+
+/* Mark/Undo style */
+.mark-btn {
+  background: linear-gradient(180deg, #2fb46b, #1f8e4f);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.03);
+}
+.mark-btn:hover { filter: brightness(.95); }
+
+/* Delete style */
+.delete-btn {
+  background: linear-gradient(180deg, #ff6b6b, #e04141);
+  color:#fff;
+  border: 1px solid rgba(0,0,0,0.12);
+}
+.delete-btn:hover { filter: brightness(.94); }
+
+/* responsive small screens */
+@media (max-width:640px){
+  .card { padding:18px; width: 100%; }
+  .date-input { width:120px; }
+  .icon-btn { width:40px; height:40px; }
+  .todo-table th, .todo-table td { padding:10px; font-size:13px; }
+}
